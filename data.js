@@ -21,7 +21,15 @@ const IMG = {
   "green-lantern-bag": "assets/flower-2.jpg", // Green Lantern packaging
   "lantz-1":     "assets/lantz-1.jpg",
   "lantz-2":     "assets/lantz-2.jpg",
-  "emeraldcup":  "assets/emeraldcup.jpg"
+  "emeraldcup":  "assets/emeraldcup.jpg",
+  "jars":        "assets/farm-10.jpg",  // founder holding jars in the light-dep
+  "mist":        "assets/shoot-1.jpg",  // grower + irrigation at golden hour
+  "inspect":     "assets/shoot-2.jpg",  // inspecting a plant, field
+  "greenhouses": "assets/shoot-3.jpg",  // light-dep rows, sun flare
+  "macro":       "assets/old-1.jpg",    // studio bud macro
+  "trichomes":   "assets/old-2.jpg",    // trichome detail
+  "dawn-ridge":  "assets/old-3.jpg",    // misty ridges at first light
+  "logo-white":  "assets/logo-white.png"
 };
 
 /* ---- the strain vault (real Ridgeline cultivars + honest profiles) ---- */
@@ -81,13 +89,20 @@ const RETAILERS = [
 
 /* ---- gallery (real farm photography) ---- */
 const GALLERY = [
-  { img: "aerial",      cap: "The farm, high above Southern Humboldt", span: "wide" },
-  { img: "sunset",      cap: "Sundown on the ridge", span: "tall" },
+  { img: "aerial",      cap: "The farm, high above Southern Humboldt" },
+  { img: "dawn-ridge",  cap: "First light on the King Range" },
   { img: "founder",     cap: "Jason in the light-dep, mid-season" },
   { img: "greenhouse",  cap: "Full rows under natural light" },
-  { img: "tall-cola",   cap: "A finished cola reaching for the sky", span: "tall" },
-  { img: "field",       cap: "Outdoor beds beneath the redwoods", span: "wide" },
-  { img: "purple-macro",cap: "Frost and color at harvest" },
+  { img: "inspect",     cap: "Reading the plants at golden hour" },
+  { img: "tall-cola",   cap: "A finished cola reaching for the sky" },
+  { img: "greenhouses", cap: "Light-dep rows across the ridge" },
+  { img: "trichomes",   cap: "Frost, up close" },
+  { img: "sunset",      cap: "Sundown on the ridge" },
+  { img: "mist",        cap: "Irrigation and morning mist" },
+  { img: "purple-macro",cap: "Color at harvest" },
+  { img: "jars",        cap: "Cured, weighed, and jarred by hand" },
+  { img: "field",       cap: "Outdoor beds beneath the redwoods" },
+  { img: "macro",       cap: "A single, sun-fed flower" },
   { img: "canopy",      cap: "Canopy from above" },
-  { img: "green-cola",  cap: "Terpene-loaded, sun-fed flower" }
+  { img: "green-cola",  cap: "Terpene-loaded, sun-grown" }
 ];
