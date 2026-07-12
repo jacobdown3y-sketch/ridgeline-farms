@@ -115,6 +115,25 @@ if ($('#ticker')) {
   $('#ticker').innerHTML = line + line;
 }
 
+/* ---------- hero typewriter ---------- */
+(() => {
+  const el = $('#heroType'); if (!el) return;
+  const words = ['Sun-Grown in Southern Humboldt', 'Two-Time Emerald Cup Champions', 'A Second-Generation Family Farm', 'Quality Over Quantity — Always'];
+  if (RM) { el.textContent = words[0]; return; }
+  let wi = 0, ci = 0, del = false;
+  (function tick() {
+    const w = words[wi];
+    el.textContent = w.slice(0, ci);
+    if (!del) {
+      if (ci < w.length) { ci++; setTimeout(tick, 52 + Math.random() * 46); }
+      else { del = true; setTimeout(tick, 1800); }
+    } else {
+      if (ci > 0) { ci--; setTimeout(tick, 26); }
+      else { del = false; wi = (wi + 1) % words.length; setTimeout(tick, 320); }
+    }
+  })();
+})();
+
 /* ============================================================
    MODAL
    ============================================================ */

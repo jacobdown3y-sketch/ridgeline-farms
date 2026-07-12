@@ -173,7 +173,9 @@ p{color:var(--gray)}
 .hero-title .stroke{font-style:italic;color:var(--smoke)}
 @keyframes rise{to{transform:none}}
 .hero-flavor{font-family:var(--sans);font-weight:300;letter-spacing:.32em;text-transform:uppercase;color:var(--white);
-  font-size:clamp(.7rem,1.3vw,.85rem);margin:22px 0 0;opacity:0;animation:fade .9s .5s forwards;text-shadow:0 2px 16px rgba(0,0,0,.6)}
+  font-size:clamp(.7rem,1.3vw,.85rem);margin:22px 0 0;opacity:0;animation:fade .9s .5s forwards;text-shadow:0 2px 16px rgba(0,0,0,.6);min-height:1.4em;display:flex;align-items:center}
+.tw-caret{display:inline-block;width:2px;height:1.1em;background:currentColor;margin-left:5px;animation:caret 1.05s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
 .hero-lede{font-family:var(--serif);font-weight:400;max-width:32ch;color:#f4f2ea;font-size:clamp(1.12rem,1.7vw,1.42rem);line-height:1.4;margin:16px 0 28px;opacity:0;animation:fade .9s .62s forwards;text-shadow:0 2px 24px rgba(0,0,0,.85)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:16px;opacity:0;animation:fade .9s .74s forwards}
 .hero-stats{display:flex;flex-wrap:wrap;gap:clamp(26px,5vw,64px);margin-top:clamp(28px,5vh,52px);padding-top:26px;
