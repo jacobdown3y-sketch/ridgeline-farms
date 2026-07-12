@@ -42,11 +42,13 @@ if (loader) {
 /* ---------- social icons ---------- */
 const SVGI = {
   ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>',
-  li: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5ZM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3s-2.3 1.57-2.3 3.2V21H9z"/></svg>'
+  tw: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.3 8.3L23 22h-6.8l-5-6.6L5.5 22H2.4l7.8-8.9L1.6 2h6.9l4.5 6L18.9 2Zm-1.2 18h1.7L7.1 3.8H5.3L17.7 20Z"/></svg>',
+  yt: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3V9Z" fill="currentColor"/></svg>'
 };
 $$('.socials-mini').forEach(el => el.innerHTML =
-  `<a href="https://www.instagram.com/ridgelinefarms_/" target="_blank" rel="noopener" aria-label="Instagram">${SVGI.ig}</a>
-   <a href="https://www.leafly.com/brands/ridgeline-farms" target="_blank" rel="noopener" aria-label="Leafly">${SVGI.li}</a>`);
+  `<a href="https://www.instagram.com/ridgelinefarms/" target="_blank" rel="noopener" aria-label="Instagram">${SVGI.ig}</a>
+   <a href="https://x.com/ridgelinefarms" target="_blank" rel="noopener" aria-label="Twitter / X">${SVGI.tw}</a>
+   <a href="https://www.youtube.com/@RIDGELINEFARMS" target="_blank" rel="noopener" aria-label="YouTube">${SVGI.yt}</a>`);
 
 /* ---------- nav ---------- */
 const nav = $('#nav');
