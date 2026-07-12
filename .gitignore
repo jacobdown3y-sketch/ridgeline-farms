@@ -1,0 +1,17 @@
+# macOS
+.DS_Store
+
+# Vercel
+.vercel
+
+# Node (not used, but ignore if added later)
+node_modules/
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+
+# Local / temp
+*.log
+_preview.html
