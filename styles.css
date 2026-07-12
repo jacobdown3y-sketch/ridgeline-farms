@@ -140,12 +140,16 @@ p{color:var(--gray)}
 .burger.x i:nth-child(2){opacity:0}
 .burger.x i:nth-child(3){top:21px;transform:rotate(-45deg)}
 @media(max-width:900px){
-  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;gap:14px;background:var(--black);transform:translateY(-100%);transition:transform .6s var(--ease)}
+  .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:4px;
+    background:var(--black);transform:translateY(-100%);transition:transform .55s var(--ease);padding:96px 24px 48px}
   .nav-links.open{transform:none}
-  .nav-links a{font-family:var(--serif);font-size:34px;letter-spacing:0;text-transform:none;color:var(--white)}
+  .nav-links a{font-family:var(--serif);font-size:clamp(1.7rem,7.4vw,2.3rem);letter-spacing:0;text-transform:none;color:var(--white);padding:.32em .3em}
   .nav-links a::after{display:none}
   .socials-mini,.nav-cta{display:none}
   .burger{display:block}
+  /* lift the whole header (menu + close) above the grain/vignette overlays and hide brand while open */
+  .nav.menu-open{z-index:9999;background:var(--black)}
+  .nav.menu-open .brand{opacity:0;pointer-events:none;transition:opacity .3s}
 }
 
 /* ============================================================ HERO ============ */
@@ -248,7 +252,7 @@ section[id]{scroll-margin-top:90px}
 .grow-card h3{font-family:var(--serif);font-weight:300;font-size:1.7rem;margin-bottom:12px;color:var(--white)}
 .grow-card p{margin:0;color:var(--gray);font-size:14px}
 @media(max-width:900px){.grow-grid{grid-template-columns:1fr 1fr}.grow-card:nth-child(4n){border-right:1px solid var(--line)}.grow-card:nth-child(2n){border-right:0}}
-@media(max-width:560px){.grow-grid{grid-template-columns:1fr}.grow-card{border-right:0!important}}
+@media(max-width:560px){.grow-card{padding:26px 18px}.grow-ico{width:30px;height:30px;margin-bottom:16px}.grow-ico svg{width:28px;height:28px}.grow-card h3{font-size:1.35rem}}
 
 /* ============================================================ STRAIN VAULT ============ */
 .vault-tools{display:flex;flex-wrap:wrap;gap:26px;align-items:flex-end;justify-content:space-between;margin-bottom:50px;padding-bottom:24px;border-bottom:1px solid var(--line)}
@@ -354,7 +358,7 @@ section[id]{scroll-margin-top:90px}
 .gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 20px 18px;color:var(--white);font-family:var(--serif);font-style:italic;font-size:15px;background:linear-gradient(transparent,rgba(4,4,4,.9));transform:translateY(8px);opacity:0;transition:.5s}
 .gallery figure:hover figcaption{transform:none;opacity:1}
 @media(max-width:900px){.gallery{columns:2}}
-@media(max-width:560px){.gallery{columns:1}}
+@media(max-width:560px){.gallery{columns:2}}
 
 /* ============================================================ INTERLUDE (full-bleed media) ============ */
 .interlude{position:relative;height:min(86vh,720px);overflow:hidden;display:grid;place-items:center}
@@ -511,17 +515,37 @@ section[id]{scroll-margin-top:90px}
 [data-parallax]{will-change:transform}
 
 @media(max-width:640px){
-  .hero-eyebrow{font-size:9px;letter-spacing:.16em;margin-bottom:18px}
-  .hero-flavor{font-size:.62rem;letter-spacing:.16em}
-  .hero-stats{gap:18px 30px}
+  /* hero flows from below the nav so nothing rides under it */
+  .hero{align-items:flex-start;min-height:82svh;padding-top:104px}
+  .hero-inner{padding-bottom:40px}
+  .scroll-hint{display:none}
+  .hero-eyebrow{font-size:9px;letter-spacing:.14em;margin-bottom:16px}
+  .hero-flavor{font-size:.62rem;letter-spacing:.14em}
+  .hero-lede{margin:14px 0 24px}
+  .hero-stats{gap:16px 28px;margin-top:24px;padding-top:22px}
   .hero-stats b{font-size:1.5rem}
+  .hero-stats span{font-size:.66rem}
+  /* tighten vertical rhythm to cut the long scroll */
+  .sec{padding:56px 0}
+  .sec-head{margin-bottom:32px}
+  .page-hero{padding:116px 0 44px}
+  .title-xl{font-size:clamp(2.3rem,10vw,3.2rem)}
+  .story{gap:32px}
+  .story .quote{font-size:1.3rem;margin:22px 0}
+  .cf-card{width:min(80vw,300px)}
+  .coverflow{height:min(62vh,470px)}
+  .cf-info{margin-top:30px}
   .hero-cta .btn{padding:14px 22px}
-  .interlude{height:min(72vh,540px)}
-  .grow-card{padding:30px 22px}
-  .filters{gap:14px 24px}
+  .interlude{height:min(66vh,470px)}
+  .grow-card{padding:26px 20px}
+  .filters{gap:14px 22px}
   .chip{padding:8px 0}
-  .cf-nav{width:46px;height:46px}
-  .award-row{padding:26px 0}
+  .cf-nav{width:44px;height:44px}
+  .award-row{padding:22px 0}
+  .gallery{columns:2;column-gap:1px}
+  .foot-top{gap:26px}
+  .foot-big{margin:26px 0 8px}
+  .cta-band{padding:40px 24px}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}

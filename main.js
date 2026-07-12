@@ -55,8 +55,9 @@ const nav = $('#nav');
 if (nav) addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), { passive: true });
 const burger = $('#burger'), navLinks = $('#navLinks');
 if (burger) {
-  burger.onclick = () => { burger.classList.toggle('x'); navLinks.classList.toggle('open'); document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : ''; };
-  $$('#navLinks a').forEach(a => a.onclick = () => { burger.classList.remove('x'); navLinks.classList.remove('open'); document.body.style.overflow = ''; });
+  const setMenu = open => { burger.classList.toggle('x', open); navLinks.classList.toggle('open', open); if (nav) nav.classList.toggle('menu-open', open); document.body.style.overflow = open ? 'hidden' : ''; };
+  burger.onclick = () => setMenu(!navLinks.classList.contains('open'));
+  $$('#navLinks a').forEach(a => a.onclick = () => setMenu(false));
 }
 
 /* ---------- year ---------- */
@@ -284,7 +285,8 @@ if ($('#growGrid')) {
 
 /* ---------- gallery ---------- */
 if ($('#galleryGrid')) {
-  $('#galleryGrid').innerHTML = GALLERY.map(g => `<figure data-img="${g.img}" data-cursor="View"><img loading="lazy" src="${IMG[g.img]}" alt="${g.cap}"><figcaption>${g.cap}</figcaption></figure>`).join('');
+  const gg = $('#galleryGrid'); const lim = +gg.dataset.limit || GALLERY.length;
+  gg.innerHTML = GALLERY.slice(0, lim).map(g => `<figure data-img="${g.img}" data-cursor="View"><img loading="lazy" src="${IMG[g.img]}" alt="${g.cap}"><figcaption>${g.cap}</figcaption></figure>`).join('');
   $$('#galleryGrid figure').forEach(f => f.onclick = () => { const g = GALLERY.find(x => x.img === f.dataset.img);
     openModal({ img: g.img, title: g.cap, tags: [{ label: 'Ridgeline Farms', solid: true }], rows: '', desc: `<p class="modal-desc">Southern Humboldt · sun-grown · owner-operated.</p>`, cta: `<a class="btn light" href="strains.html" data-close><span>See the strains</span></a>` }); });
 }
