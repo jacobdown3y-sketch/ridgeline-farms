@@ -31,11 +31,11 @@ body{
   line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased;cursor:none;
 }
 @media(hover:none){body{cursor:auto}}
-@media(max-width:900px){body{cursor:auto}}
+@media(max-width:1024px){body{cursor:auto}}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:none;color:inherit}
-@media(max-width:900px){button{cursor:pointer}}
+@media(max-width:1024px){button{cursor:pointer}}
 ::selection{background:var(--white);color:var(--black)}
 :focus-visible{outline:1px solid var(--white);outline-offset:4px}
 .wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:clamp(20px,5vw,60px)}
@@ -63,7 +63,7 @@ em,.i{font-style:italic}
 .cursor.hide,.cursor-dot.hide{opacity:0}
 .cursor .clabel{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--sans);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--black);opacity:0;transition:opacity .3s;font-weight:500}
 .cursor.grow .clabel{opacity:1}
-@media(hover:none),(max-width:900px){.cursor,.cursor-dot{display:none}}
+@media(hover:none),(max-width:1024px){.cursor,.cursor-dot{display:none}}
 
 /* ---------- loader ---------- */
 .loader{position:fixed;inset:0;z-index:10001;background:var(--black);display:grid;place-items:center;transition:opacity .8s var(--ease),visibility .8s}
@@ -122,7 +122,7 @@ p{color:var(--gray)}
 .brand .wordmark{display:flex;flex-direction:column;line-height:1.1}
 .brand .wordmark b{font-family:var(--sans);font-weight:500;font-size:13px;letter-spacing:.24em;text-transform:uppercase}
 .brand .wordmark span{font-family:var(--sans);font-weight:300;font-size:8.5px;letter-spacing:.34em;color:var(--gray);text-transform:uppercase;margin-top:3px}
-.nav-links{display:flex;align-items:center;gap:34px}
+.nav-links{display:flex;align-items:center;gap:26px}
 .nav-links a{font-family:var(--sans);font-weight:300;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);position:relative;transition:color .3s}
 .nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:var(--white);transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ease)}
 .nav-links a:hover{color:var(--white)}
@@ -139,7 +139,7 @@ p{color:var(--gray)}
 .burger.x i:nth-child(1){top:21px;transform:rotate(45deg)}
 .burger.x i:nth-child(2){opacity:0}
 .burger.x i:nth-child(3){top:21px;transform:rotate(-45deg)}
-@media(max-width:900px){
+@media(max-width:1024px){
   .nav-links{position:fixed;inset:0;flex-direction:column;justify-content:center;align-items:center;gap:4px;
     background:var(--black);transform:translateY(-100%);transition:transform .55s var(--ease);padding:96px 24px 48px}
   .nav-links.open{transform:none}
@@ -147,6 +147,9 @@ p{color:var(--gray)}
   .nav-links a::after{display:none}
   .socials-mini,.nav-cta{display:none}
   .burger{display:block}
+  /* CRITICAL: no backdrop-filter on mobile — it would make .nav the containing block
+     for the position:fixed menu, pulling its links into view on scroll. Use a solid bg. */
+  .nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(7,7,6,.95)}
   /* lift the whole header (menu + close) above the grain/vignette overlays and hide brand while open */
   .nav.menu-open{z-index:9999;background:var(--black)}
   .nav.menu-open .brand{opacity:0;pointer-events:none;transition:opacity .3s}
